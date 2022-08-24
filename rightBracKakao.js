@@ -1,23 +1,49 @@
-function solution(s) {
-    let u = '';
-    let v = '';
-    let cnt = 0;
-    let pos = 0;
-    for (let brac of s) {
-        let move = s.slice(0, 1)
-        if (u.length % 2 === 0 && v.length % 2 !== 1) {
-            if (brac === '(') u += move;
-            else v += move;
+// 다시
+
+function isPairBracket(u) {
+
+    let stack = [];
+    for (let i = 0; i < u.length; i++) {
+        if (u[i] === '(') {
+            stack.push('(');
         } else {
-            if (brac === ')') u += move;
-            else v += move;
+            if (stack.length > 0) {
+                stack.pop();
+            } else {
+                return false;
+            }
         }
-        s = s.slice(1);
     }
-    console.log(u)
-    console.log(v)
+    return stack.length ? false : true;
 }
 
-solution("(()())()");
+function solution(s) {
+    if (s.length === 0) return s;
+    let lcnt = 0;
+    let rcnt = 0;
+    let pos = 0;
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === '(') lcnt++;
+        if (s[i] === ')') rcnt++;
+        if (lcnt === rcnt) {
+            pos = i + 1
+            console.log(u)
+            break;
+        }
+
+    }
+    let u = s.slice(0, pos);
+    let v = s.slice(pos + 1);
+    let answer = '';
+
+    if (isPairBracket(u)) {
+        return u.concat(solution(v));
+    } else {
+
+    }
+
+}
+
+// solution("(()())()");
 // solution(")(");
-// solution("()))((()");
+solution("()))((()");
