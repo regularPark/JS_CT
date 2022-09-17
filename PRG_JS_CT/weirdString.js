@@ -1,16 +1,17 @@
 function solution(s) {
-    let arr = s.split(" ")
-    let answer = '';
-    console.log(arr)
-    for (let word of arr) {
-        for (let i = 0; i < word.length; i++) {
-            if (i % 2 === 0) answer += word[i].toUpperCase();
-            else answer += word[i];
-        }
-        answer += ' ';
-    }
-    console.log(answer);
-    return answer.trim();
+  return s
+    .split(" ")
+    .map((word) =>
+      word
+        .split("")
+        .map((char, index) =>
+          index % 2 === 0
+            ? word[index].toUpperCase()
+            : word[index].toLowerCase()
+        )
+        .join("")
+    )
+    .join(" ");
 }
 
-solution("try hello world")
+console.log(solution("try           hello world"));
