@@ -1,0 +1,16 @@
+//한 줄인 경우
+let fs = require("fs");
+let input = fs.readFileSync("/dev/stdin").toString().split(" ");
+
+let num = Number(input);
+
+for (let i = 1; i <= num; i++) {
+  console.log(i);
+}
+
+//여러 줄인 경우
+let fs = require("fs");
+let input_ = fs.readFileSync("/dev/stdin").toString().split("\n");
+
+// 한 문장
+const input__ = +require("fs").readFileSync("dev/stdin").toString();
