@@ -1,1 +1,2 @@
-<problem>17413<is hardest>problem ever<end>
+3
+3 1 2
