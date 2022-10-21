@@ -25,9 +25,10 @@ for (let x of input) {
 }
 
 graph.forEach((vertex) => {
-  vertex.sort((a, b) => a - b);
+  vertex.sort((a, b) => b - a);
 });
 
+console.log(graph);
 let answer = new Array(N).fill(0);
 
 function dfs(r) {
