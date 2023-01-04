@@ -28,3 +28,20 @@ function dfs(idx, cnt) {
 dfs(0, 0);
 
 console.log(answer.trim());
+
+// short code
+
+// var [N, M] = (require('fs').readFileSync('dev/stdin') + '').split(' ').map(e => +e);
+
+// function dfs(s, from, m) {
+// 	if (m == 0) {
+// 		console.log(s.slice(0, -1));
+// 		return;
+// 	}
+
+// 	for (var i = from; i <= N; i++) {
+// 		dfs(s + i + ' ', i + 1, m - 1);
+// 	}
+// }
+
+// dfs('', 1, M);
