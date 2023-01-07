@@ -5,25 +5,22 @@ const [N, M] = require("fs")
   .split(" ")
   .map(Number);
 
-const visited = new Array(N);
 let nums = [];
 let answer = "";
 
-function dfs(idx, cnt) {
+function dfs(cnt) {
   if (cnt === M) {
     answer += `${nums.join(" ")}\n`;
     return;
   }
 
-  for (let i = idx; i < N; i++) {
-    visited[i] = true;
+  for (let i = 0; i < N; i++) {
     nums.push(i + 1);
-    dfs(i, cnt + 1);
+    dfs(cnt + 1);
     nums.pop();
-    visited[i] = false;
   }
 }
 
-dfs(0, 0);
+dfs(0);
 
 console.log(answer.trim());
