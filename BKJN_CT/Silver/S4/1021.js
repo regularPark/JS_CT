@@ -4,8 +4,6 @@ const input = require("fs")
   .trim()
   .split("\n");
 
-console.log(input);
-
 const [N, M] = input
   .shift()
   .split(" ")
