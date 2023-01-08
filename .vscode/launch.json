@@ -4,9 +4,10 @@
     // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
     "version": "0.2.0",
     "configurations": [
+        
         {
             "name": "Launch Program",
-            "program": "${workspaceFolder}/BKJN_CT/Silver/S3/15651.js",
+            "program": "${workspaceFolder}/BKJN_CT/Silver/S4/1021.js",
             "request": "launch",
             "skipFiles": [
                 "<node_internals>/**"
