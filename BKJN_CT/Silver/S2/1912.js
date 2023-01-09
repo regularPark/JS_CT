@@ -5,18 +5,19 @@ const input = require("fs")
   .split("\n");
 
 let arr = input[1].split(" ").map((x) => +x);
-console.log(arr);
 
-let answer = arr[0];
-let n = +input[0];
+let n = arr.length;
 
-let sum = (lp = 0);
-const solution = (m) => {
-  for (let rp = 0; rp < n; rp++) {
-    sum += arr[rp];
-    while (sum > m) {
-      sum -= arr[lp++];
-    }
-    answer;
+let max = arr[0];
+
+for (let i = 1; i < n; i++) {
+  if (arr[i - 1] > 0 && arr[i] + arr[i - 1] > 0) {
+    arr[i] += arr[i - 1];
   }
-};
+
+  if (max < arr[i]) max = arr[i];
+}
+
+// console.log(arr);
+
+console.log(max);
