@@ -10,20 +10,15 @@ const [N, M] = input
   .map((x) => +x);
 
 let answer = [];
-let notListen = [];
-let notSeen = [];
+let notListen = new Set();
 
 for (let i = 0; i < N; i += 1) {
-  notListen.push(input.shift());
+  notListen.add(input[i]);
 }
 
-for (let i = 0; i < M; i += 1) {
-  notSeen.push(input.shift());
-}
-
-for (let i = 0; i < N; i += 1) {
-  if (notSeen.includes(notListen[i])) {
-    answer.push(notListen[i]);
+for (let i = N; i < N + M; i += 1) {
+  if (notListen.has(input[i])) {
+    answer.push(input[i]);
   }
 }
 
