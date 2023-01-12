@@ -7,7 +7,7 @@ const input = require("fs")
 let n = +input.shift();
 
 let dp = input.map((x) => x.split(" ").map((e) => +e));
-
+// console.log(n, dp);
 for (let i = 1; i < n; i++) {
   for (let j = 0; j < dp[i].length; j++) {
     if (j == 0) dp[i][j] += dp[i - 1][j];
