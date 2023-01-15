@@ -3,14 +3,17 @@ const solution = (number, limit, power) => {
   let weapons = [];
   for (let i = 1; i <= number; i++) {
     let cnt = 0;
-    for (let j = 1; j <= i; j++) {
-      if (i % j == 0) cnt++;
+    for (let j = 1; j <= Math.sqrt(i); j++) {
+      if (i % j == 0) {
+        if (i / j == j) cnt++;
+        else cnt += 2;
+      }
     }
     weapons.push(cnt);
   }
 
   for (let i = 0; i < weapons.length; i++) {
-    if (weapons[i] > limit) weapons[i] = limit;
+    if (weapons[i] > limit) weapons[i] = power;
     answer += weapons[i];
   }
 
