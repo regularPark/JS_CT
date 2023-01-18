@@ -7,7 +7,7 @@
         
         {
             "name": "Launch Program",
-            "program": "${workspaceFolder}/BKJN_CT/Silver/S4/1021.js",
+            "program": "${workspaceFolder}/PRG_JS_CT/Lv.1/makeHamburger.js",
             "request": "launch",
             "skipFiles": [
                 "<node_internals>/**"
