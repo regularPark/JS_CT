@@ -1,17 +1,16 @@
 const solution = (X, Y) => {
-  let answer = [];
   let xArr = X.split("");
   let yArr = Y.split("");
-  let numMap = new Map();
+  let numMap = [];
   for (let num of xArr) {
     if (yArr.includes(num)) {
-      numMap.get(num)
-        ? numMap.set(num, numMap.get(num) + 1)
-        : numMap.set(num, 1);
+      numMap.push(num);
+      yArr[yArr.lastIndexOf(num)] = "";
     }
   }
+  numMap.sort((a, b) => b - a);
 
-  return numMap;
+  return numMap.length > 1 ? numMap.join("") : "-1";
 };
 
 console.log(solution("100", "2345"));
