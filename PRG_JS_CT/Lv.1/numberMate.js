@@ -1,16 +1,20 @@
 const solution = (X, Y) => {
-  let xArr = X.split("");
-  let yArr = Y.split("");
-  let numMap = [];
-  for (let num of xArr) {
-    if (yArr.includes(num)) {
-      numMap.push(num);
-      yArr[yArr.lastIndexOf(num)] = "";
-    }
-  }
-  numMap.sort((a, b) => b - a);
+  let answer = "";
+  X = X.split("");
+  Y = Y.split("");
 
-  return numMap.length > 1 ? numMap.join("") : "-1";
+  for (let i = 0; i < 10; i++) {
+    const curX = X.filter((a) => Number(a) === i).length;
+    const curY = Y.filter((a) => Number(a) === i).length;
+    answer += String(i).repeat(Math.min(curX, curY));
+  }
+
+  if (answer === "") return "-1";
+  if (Number(answer) === 0) return "0";
+  return answer
+    .split("")
+    .sort((a, b) => Number(b) - Number(a))
+    .join("");
 };
 
 console.log(solution("100", "2345"));
