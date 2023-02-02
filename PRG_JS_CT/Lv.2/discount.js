@@ -1,7 +1,13 @@
 const solution = (want, number, discount) => {
   let answer = 0;
   let start = 0;
-  for (let i = 0; i < discount.length; i++) {}
+  let end = 0;
+  for (let i = 0; i < discount.length; i++) {
+    if (want[start] === discount[i]) {
+      end++;
+    }
+    start++;
+  }
 
   return answer;
 };
