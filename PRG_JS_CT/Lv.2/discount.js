@@ -1,14 +1,24 @@
 const solution = (want, number, discount) => {
   let answer = 0;
-  let start = 0;
-  let end = 0;
-  for (let i = 0; i < discount.length; i++) {
-    if (want[start] === discount[i]) {
-      end++;
-    }
-    start++;
+  const dict = {};
+
+  for (let i = 0; i < want.length; i++) {
+    dict[want[i]] = number[i];
   }
 
+  for (let i = 0; i <= discount.length - 10; i++) {
+    if (!want.includes(discount[i])) continue;
+    let tmp = discount.slice(i, i + 10);
+    if (tmp.filter((el) => !want.includes(el)).length) continue;
+    let isCheck = true;
+    for (let i = 0; i < want.length; i++) {
+      if (dict[want[i]] !== tmp.filter((el) => el === want[i]).length) {
+        isCheck = false;
+        break;
+      }
+    }
+    if (isCheck) answer++;
+  }
   return answer;
 };
 
