@@ -1,18 +1,14 @@
 const solution = (s, skip, index) => {
-  let tmp = s.split("").map((v) => v.charCodeAt() + index);
-  let skipList = skip.split("").map((v) => v.charCodeAt());
+  let answer = "";
+  const regex = new RegExp(`[^${skip}]`, "g");
+  const alphabet = "abcdefghijklmnopqrstuvwxyz".match(regex);
 
-  const idxList = [];
-  tmp.map((v) =>
-    idxList.push(skipList.filter((el) => v - index < el && v >= el).length)
+  s.split("").forEach(
+    (val) =>
+      (answer += alphabet[(alphabet.indexOf(val) + index) % alphabet.length])
   );
 
-  tmp.forEach((val, idx) => {
-    tmp[idx] = val + idxList[idx];
-    if (tmp[idx] > 122) tmp[idx] = tmp[idx] - 26;
-  });
-
-  return tmp.map((v) => String.fromCharCode(v)).join("");
+  return answer;
 };
 
 console.log(solution("aukks", "wbqd", 5));
