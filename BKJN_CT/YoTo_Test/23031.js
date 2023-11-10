@@ -6,10 +6,12 @@ const input = require('fs')
   .trim()
   .split('\n');
 
-let [a, b, n] = input.shift().split(' ');
+const n = input.shift();
+const cmd = input.shift().split('');
 
-const q = [];
-const time = 0;
-const workTable = input.map((val) => val.split(' '));
+let switchLoc;
+let zombie = [];
 
-while (true) {}
+const board = input.map((v) => v);
+
+console.log(board);
